@@ -8,64 +8,46 @@ package expo;
  *
  * @author TONY_VERA
  */
-public class Biblioteca {
-    //ATRIBUTOS
-    private String listaUsuarios,listaMateriales,listaPrestamo;
+//ATRIBUTOS
+    
+   private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<MaterialBiblioteca> materiales = new ArrayList<>();
+    private ArrayList<Prestamo> prestamos = new ArrayList<>();
 
     public Biblioteca() {
     }
-
-    public Biblioteca(String listaUsuarios, String listaMateriales, String listaPrestamo) {
-        this.listaUsuarios = listaUsuarios;
-        this.listaMateriales = listaMateriales;
-        this.listaPrestamo = listaPrestamo;
-    }
-
-    public String getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(String listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
-
-    public String getListaMateriales() {
-        return listaMateriales;
-    }
-
-    public void setListaMateriales(String listaMateriales) {
-        this.listaMateriales = listaMateriales;
-    }
-
-    public String getListaPrestamo() {
-        return listaPrestamo;
-    }
-
-    public void setListaPrestamo(String listaPrestamo) {
-        this.listaPrestamo = listaPrestamo;
-    }
     
-    
-    
-    
+ 
     //METODOS
-    public void agregarUsuarios(){
-        
+    public void agregarUsuarios(Usuario u){
+        usuarios.add(u);
     }
-    public void agregarMateriales(){
-        
+    public void agregarPrestamo(Prestamo p) {
+         if (prestamos.size() >= 3) {
+            System.out.println("Límite de préstamos alcanzado");
+            return;
+        }
+        prestamos.add(p);
     }
-    public void devolverMateriales(){
-        
+    public void agregarMaterial(MaterialBiblioteca m) {
+        materiales.add(m);
     }
-    public void mostrarUsuario(){
-        
+    public void devolverMaterial(int i) {
+        prestamos.get(i).devolver();
     }
-    public void mostrarMateriales(){
-        
+    public void mostrarUsuarios() {
+        for (Usuario u : usuarios) {
+            System.out.println(u.getNombres());
+        }
     }
-    public void mostrarPrestamos(){
-        
+    public void mostrarMateriales() {
+        for (MaterialBiblioteca m : materiales) {
+            m.mostrarInformacion();
+        }
     }
-    
+     public void mostrarPrestamos() {
+        for (Prestamo p : prestamos) {
+            p.mostrarPrestamo();
+        }
+    }
 }
