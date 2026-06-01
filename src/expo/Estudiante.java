@@ -8,6 +8,37 @@ package expo;
  *
  * @author TONY_VERA
  */
-public class Estudiante {
-    
+public class Estudiante extends Usuario {
+
+    private String carrera;
+    private String semestre;
+
+    public Estudiante() {
+    }
+
+    public Estudiante(String carrera, String semestre,
+            int id, int cedula, String nombre,
+            int edad, String direccionDomicilio) {
+
+        super(id, cedula, nombre, edad, direccionDomicilio);
+        this.carrera = carrera;
+        this.semestre = semestre;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public String getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
 }
+
