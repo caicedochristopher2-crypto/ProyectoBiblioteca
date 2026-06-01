@@ -9,6 +9,7 @@ package expo;
  * @author TONY_VERA
  */
 public interface IPrestamo {
+    
     public abstract void prestar();
     public abstract void devolver();
     
