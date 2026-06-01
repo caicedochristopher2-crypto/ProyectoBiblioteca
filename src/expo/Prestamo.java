@@ -12,6 +12,7 @@ package expo;
     private String usuario,material,fechaPrestamo,fechaEntrega;
     private double multa;
 
+
     public Prestamo() {
     }
 
